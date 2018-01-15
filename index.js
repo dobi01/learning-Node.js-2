@@ -15,8 +15,13 @@ fs.readFile('./tekst.txt', 'utf-8', function(err, data) {
 });
 
 fs.readdir('../task-13.7', function(err, data) {
-    console.log(data);
-    fs.writeFile('log.txt', data, (err) => {
+    let text = '';
+
+    for(let i of data) {
+      text += i + '\n';
+    }
+
+    fs.writeFile('log.txt', text, (err) => {
       if (err) throw err;
       console.log('Zapisano katalog!');
     });
